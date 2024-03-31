@@ -40,6 +40,8 @@ with (st.sidebar):
             text = docx2txt.process(uploaded_file)
         elif file_type in ['image/jpg', 'image/jpeg', 'image/png']:
             image = Image.open(uploaded_file)
+            image = image.convert('RGB')
+            
             st.image(image, caption="Uploaded Image", use_column_width=True)
             buffered = BytesIO()
             image.save(buffered, format="JPEG")
@@ -257,5 +259,3 @@ else:
         msg = ans
         st.session_state.messages.append({"role": "assistant", "content": msg})
         st.chat_message("assistant").write(msg)
-
-
