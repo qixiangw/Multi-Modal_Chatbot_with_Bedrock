@@ -17,10 +17,11 @@ import numpy as np
 
 logger = logging.getLogger(__name__)
 logging.basicConfig(level=logging.INFO)
+region='us-east-1'
 
 bedrock = boto3.client(
     service_name='bedrock',
-    region_name='us-east-1'
+    region_name=region
 )
 
 st.title("🤖Multi-Modal Chatbot")
@@ -89,7 +90,7 @@ def invoke_with_system_pe(bedrock_runtime, model_id, max_tokens,system, messages
 def text_file_prompts(context,history,question):
     try:
 
-        bedrock_runtime = boto3.client(service_name='bedrock-runtime',region_name='us-east-1')
+        bedrock_runtime = boto3.client(service_name='bedrock-runtime',region_name=region)
 
         model_id = 'anthropic.claude-3-sonnet-20240229-v1:0'
         max_tokens = 50000
@@ -124,7 +125,7 @@ def text_file_prompts(context,history,question):
 def image_file_prompts(content_image,file_type,history,question):
     try:
 
-        bedrock_runtime = boto3.client(service_name='bedrock-runtime',region_name='us-east-1')
+        bedrock_runtime = boto3.client(service_name='bedrock-runtime',region_name=region)
 
         model_id = 'anthropic.claude-3-sonnet-20240229-v1:0'
         max_tokens = 50000
@@ -161,7 +162,7 @@ def image_file_prompts(content_image,file_type,history,question):
 def text_prompts(history,question):
     try:
 
-        bedrock_runtime = boto3.client(service_name='bedrock-runtime',region_name='us-east-1')
+        bedrock_runtime = boto3.client(service_name='bedrock-runtime',region_name=region)
 
         model_id = 'anthropic.claude-3-sonnet-20240229-v1:0'
         max_tokens = 50000
