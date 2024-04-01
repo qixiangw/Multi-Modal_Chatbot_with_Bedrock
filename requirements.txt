@@ -5,5 +5,5 @@ Pillow
 pdfminer.six
 python-docx
 docx2txt
-#json
+json
 #logging
