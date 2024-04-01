@@ -1,7 +1,8 @@
-langchain==0.0.329
 boto3>=1.28.27
 streamlit
 Pillow
 pdfminer.six
 python-docx
 docx2txt
+langsmith==0.1.38
+langchain==0.1.14
